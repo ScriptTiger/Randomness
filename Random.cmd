@@ -35,19 +35,19 @@ goto choice
 rem Roll X-sided die Y times
 :2
 if "%1"=="" (
-set /p dice=Number of rolls? 
-set /p sides=Number of sides? 
+	set /p dice=Number of rolls? 
+	set /p sides=Number of sides? 
 ) else (
-set dice=%2
-set sides=%3
+	set dice=%2
+	set sides=%3
 )
 set rolls=0
 setlocal ENABLEDELAYEDEXPANSION
 for /l %%0 in (1,1,%dice%) do (
-for /l %%a in (1,1,%sides%) do set /a side_%%a="(!random!<<30)+(!random!<<15)+!random!"
-call :sort side roll
-echo Roll %%0 is !roll!.
-set /a rolls=!rolls!+!roll!
+	for /l %%a in (1,1,%sides%) do set /a side_%%a="(!random!<<30)+(!random!<<15)+!random!"
+	call :sort side roll
+	echo Roll %%0 is !roll!.
+	set /a rolls=!rolls!+!roll!
 )
 echo Total rolled is !rolls!.
 for /l %%0 in (1,1,%sides%) do set side_%%0=
@@ -58,11 +58,11 @@ goto choice
 rem Pick a number from X to Y
 :3
 if "%1"=="" (
-set /p start=What number should your range start at? 
-set /p end=What number should your range end at?  
+	set /p start=What number should your range start at? 
+	set /p end=What number should your range end at?  
 ) else (
-set start=%2
-set end=%3
+	set start=%2
+	set end=%3
 )
 setlocal ENABLEDELAYEDEXPANSION
 for /l %%0 in (%start%,1,%end%) do set /a num_%%0="(!random!<<30)+(!random!<<15)+!random!"
@@ -92,13 +92,13 @@ rem Matrix
 :5
 setlocal ENABLEDELAYEDEXPANSION
 if "%1"=="" (
-echo 1] 0 through 9
-echo 2] Only 1 and 0
-echo X] Exit
-choice /c 12x /n
-set choice=!errorlevel!
+	echo 1] 0 through 9
+	echo 2] Only 1 and 0
+	echo X] Exit
+	choice /c 12x /n
+	set choice=!errorlevel!
 ) else (
-set choice=%2
+	set choice=%2
 )
 cls
 if %choice%==1 endlocal ENABLEDELAYEDEXPANSION&cmd /v:on /c"for /l %%0 in () do @set /a !random!"
@@ -114,10 +114,10 @@ exit /b
 rem Sort a variable set and return the bottom value
 :sort
 for /f "tokens=2" %%0 in (
-'^(
-for /f "tokens=2,3 delims=_=" %%a in ^(
-^'set %1_^'
-^) do @echo %%b %%a
-^) ^| sort'
+	'^(
+		for /f "tokens=2,3 delims=_=" %%a in ^(
+			^'set %1_^'
+		^) do @echo %%b %%a
+	^) ^| sort'
 ) do set %2=%%0
 exit /b

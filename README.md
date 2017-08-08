@@ -1,2 +1,2 @@
 # Randomness
-Demonstrations in randomness.
+Demonstrations in randomness and private/local functions.

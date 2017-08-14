@@ -1,5 +1,12 @@
 @echo off
 
+rem =====
+rem For more information on ScriptTiger and more ScriptTiger scripts visit the following URL:
+rem https://scripttiger.github.io/
+rem Or visit the following URL for the latest information on this ScriptTiger script:
+rem https://github.com/ScriptTiger/Randomness
+rem =====
+
 rem The %random% variable will give you 15 random bits (32767 total, 1,2,4,..,16384)
 
 rem For 32 bits of random (positve and negative):

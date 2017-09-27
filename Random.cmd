@@ -58,7 +58,7 @@ for /l %%0 in (1,1,%dice%) do (
 )
 echo Total rolled is !rolls!.
 for /l %%0 in (1,1,%sides%) do set side_%%0=
-endlocal ENABLEDELAYEDEXPANSION
+endlocal
 if not "%~1"=="" exit /b
 goto choice
 
@@ -76,7 +76,7 @@ for /l %%0 in (%start%,1,%end%) do set /a num_%%0="(!random!<<30)+(!random!<<15)
 call :sort num num
 echo The number picked between %start% and %end% is %num%^^!
 for /l %%0 in (%start%,1,%end%) do set num_%%0=
-endlocal ENABLEDELAYEDEXPANSION
+endlocal
 if not "%~1"=="" exit /b
 goto choice
 
@@ -91,7 +91,7 @@ echo %rps%^^^!
 set rps_Rock=
 set rps_Paper=
 set rps_Scissors=
-endlocal ENABLEDELAYEDEXPANSION
+endlocal
 if not "%~1"=="" exit /b
 goto choice
 
@@ -108,9 +108,9 @@ if "%1"=="" (
 	set choice=%2
 )
 cls
-if %choice%==1 endlocal ENABLEDELAYEDEXPANSION&cmd /v:on /c"for /l %%0 in () do @set /a !random!"
-if %choice%==2 endlocal ENABLEDELAYEDEXPANSION&cmd /v:on /c"for /l %%0 in () do @set /a !random!^&1"
-endlocal ENABLEDELAYEDEXPANSION
+if %choice%==1 endlocal&cmd /v:on /c"for /l %%0 in () do @set /a !random!"
+if %choice%==2 endlocal&cmd /v:on /c"for /l %%0 in () do @set /a !random!^&1"
+endlocal
 if not "%~1"=="" exit /b
 goto choice
 

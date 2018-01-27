@@ -1,3 +1,5 @@
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ScriptTiger)
+
 # Randomness
 Demonstrations in randomness and private/local functions. If you ever wanted to make a script game, you should definitely check this out!
 

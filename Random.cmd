@@ -83,14 +83,10 @@ goto choice
 rem Rock, paper, scissors
 :4
 setlocal ENABLEDELAYEDEXPANSION
-set /a rps_Rock="(!random!<<30)+(!random!<<15)+!random!"
-set /a rps_Paper="(!random!<<30)+(!random!<<15)+!random!"
-set /a rps_Scissors="(!random!<<30)+(!random!<<15)+!random!"
+for %%0 in (rps_Rock rps_Paper rps_Scissors) do set /a %%0="(!random!<<30)+(!random!<<15)+!random!"
 call :sort rps rps
 echo %rps%^^^!
-set rps_Rock=
-set rps_Paper=
-set rps_Scissors=
+for %%0 in (rps_Rock rps_Paper rps_Scissors) do set %%0=
 endlocal
 if not "%~1"=="" exit /b
 goto choice
